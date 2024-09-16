@@ -115,10 +115,10 @@ function processBlueprint(blueprint, opts) {
                 // override toString() of drafter's error to expand error.result.error.location
                 console.log(error.stack);
                 console.log(JSON.stringify(error.result, 0, 2));
-                return;
+                process.exit(1);
             }
             console.log(error);
-            return;
+            process.exit(1);
         }
         var swagger = result.swagger;
         if (opts.server) {
