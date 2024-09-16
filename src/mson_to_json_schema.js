@@ -57,6 +57,9 @@ function convert(mson, options) {
         const member = mson.content[j];
         if (member.element !== "member") continue;
         var propertySchema = convert(member.content.value, options);
+        if (propertySchema === null) {
+            continue;
+        }
         if (member.meta && member.meta.description) {
             propertySchema.description = member.meta.description;
         }
